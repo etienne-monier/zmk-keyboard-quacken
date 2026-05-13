@@ -57,8 +57,8 @@
   #define H_A    &hrm LSHIFT
   #define H_SEMI &hrm RSHIFT
 #else
-  #define H_A    &kp
-  #define H_SEMI &kp
+  #define H_A    &hrm LGUI
+  #define H_SEMI &hrm RGUI
 #endif
 
 #if defined HT_HOME_ROW_MODS || defined HT_TWO_THUMB_KEYS
