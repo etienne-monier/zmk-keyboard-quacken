@@ -26,18 +26,7 @@
       >;
     };
 
-    // 1. NumLock layer -- NavNum layer that stays on until deactivated without holding key
-    num_lock_layer: num_lock_layer {
-      display-name = "NumLock";
-      bindings = <
-        &trans  &kp ESC  &kp HOME &kp UP   &kp END   &kp PG_UP    &to BASE_LAYER S_N7  S_N8  S_N9  S_FSLH  &trans
-        &trans  S_EQUAL  &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN    S_MINUS        S_N4  S_N5  S_N6  S_N0    &trans
-        &trans  S_MONEY  S_COLON  S_STAR   S_PLUS    S_PRCNT      S_COMMA        S_N1  S_N2  S_N3  S_DOT   &trans
-                &trans  &sc NAV_NUM_LAYER BACKSPACE  &kp (TAB)    &trans  &lt NAV_NUM_LAYER LS(SPACE)  &EZ_SL(SYMBOLS_LAYER)
-      >;
-    };
-
-    // 2. Symbols layer -- with Ergo-L, basically just an AltGr layer with custom thumb keys
+    // 1. Symbols layer -- with Ergo-L, basically just an AltGr layer with custom thumb keys
     //                  -- can be redefined for non-AltGr layouts such as QWERTY-ANSI
     symbols_layer: symbols_layer {
       display-name = "Symbols";
@@ -49,33 +38,20 @@
       >;
     };
 
-    // 3. VimNav layer -- HJKL arrow cluster on the right hand
+    // 2. VimNav layer -- HJKL arrow cluster on the right hand
     //                 -- best used along with the NumRow layer
     //                 -- keyboard shortcuts on the left hand are adjusted to the OS layout (Ergo-L here)
     vim_nav_layer: vim_nav_layer {
       display-name = "VimNav";
       bindings = <
         &trans  &none    X_CTL_W  &vim_prev &vim_next &none        &none    &kp HOME  &kp PG_DN &kp PG_UP &kp END   &trans
-        &trans  X_ALL    X_SAVE   X_SHTAB   &kp TAB   &none        &none    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans
+        &trans  X_ALL    X_SAVE2  X_SHTAB   &kp TAB   &none        &none    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans
         &trans  X_UNDO   X_CUT    X_COPY    X_PASTE   X_REDO       &none    &none     &none     &none     &none     &trans
           &kp CAPS  &lt FN_MEDIA_LAYER DEL  &mo NUM_ROW_LAYER    &trans  &mo FN_MEDIA_LAYER  &EZ_LSK(RALT)
       >;
     };
 
-    // 4. NavNum layer -- inverted T arrow cluster on the left hand, numpad on the right hand
-    //                 -- can be the only extra layer you need if you're not too picky with number+symbols n-grams
-    //                 -- keyboard shortcuts on the left hand are adjusted to the OS layout (Ergo-L here)
-    nav_num_layer: nav_num_layer {
-      display-name = "NavNum";
-      bindings = <
-        &trans  &kp ESC  &kp HOME &kp UP   &kp END   &kp PG_UP    &to NUM_LOCK_LAYER S_N7  S_N8  S_N9  S_FSLH  &trans
-        &trans  X_ALL    &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN    S_MINUS            S_N4  S_N5  S_N6  S_N0    &trans
-        &trans  X_UNDO   X_CUT    X_COPY   X_PASTE   X_REDO       S_COMMA            S_N1  S_N2  S_N3  S_DOT   &trans
-                 &kp CAPS  &sc FN_MEDIA_LAYER DEL  &kp LS(TAB)    &kp ESCAPE  &lt FN_MEDIA_LAYER LS(SPACE)  &EZ_LSK(RALT)
-      >;
-    };
-
-    // 5. NumRow layer -- bring the numbers to the homerow, keep shift+numbers for shortcuts and symbols
+    // 3. NumRow layer -- bring the numbers to the homerow, keep shift+numbers for shortcuts and symbols
     //                 -- space becomes shift+space, which is a no-break space with some OS layouts (e.g. Ergo-L)
     //                 -- best used along with the VimNav layer
     num_row_layer: num_row_layer {
@@ -88,7 +64,7 @@
       >;
     };
 
-    // 6. FnMedia layer -- F1..12 pad on the left hand, HRM on the right hand
+    // 4. FnMedia layer -- F1..12 pad on the left hand, HRM on the right hand
     //                  -- reset and bootloader reset on difficult thumb keys
     //                  -- could be completed with other rare keys
     fn_media_layer: fn_media_layer {
@@ -102,20 +78,3 @@
     };
   };
 };
-
-// Emulated layouts (experimental!)
-#ifdef KB_EMULATION_DVORAK
-  #include "emulations/dvorak.dtsi"
-#elif defined KB_EMULATION_ERGOL
-  #include "emulations/ergol.dtsi"
-#elif defined KB_EMULATION_QWERTY_LAFAYETTE
-  #include "emulations/qwerty_lafayette.dtsi"
-
-// Some layouts require extra layers to fit on the Quacken.
-#elif defined KB_LAYOUT_AZERTY
-  #include "extra_layers/azerty.dtsi"
-#elif defined KB_LAYOUT_BEPO
-  #include "extra_layers/bepo.dtsi"
-#elif defined KB_LAYOUT_ERGOL && defined HUMMINGBIRD
-  #include "extra_layers/ergol_hummingbird.dtsi"
-#endif
