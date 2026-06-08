@@ -17,29 +17,154 @@
 
 // Potentially used by other keymaps deriving from this one, who may add extra layers.
 // Make sure this stays equal to <index_of_last_layer> + 1
-#define EXTRA_LAYERS_START_INDEX 7
+#define EXTRA_LAYERS_START_INDEX 5
 
+
+
+// ==================================================
+// 1.a Ergo-L keycode aliases
+// ==================================================
+
+
+// ERGO-L keycode aliases
+//
+// See Ergo-L repository for more information
+// https://github.com/Nuclear-Squid/ergol
+//
+
+// Digit row
+#define _EG_1    N1
+#define _EG_2    N2
+#define _EG_3    N3
+#define _EG_4    N4
+#define _EG_5    N5
+#define _EG_6    N6
+#define _EG_7    N7
+#define _EG_8    N8
+#define _EG_9    N9
+#define _EG_0    N0
+
+// First row
+#define _EG_Q    Q
+#define _EG_C    W
+#define _EG_O    E
+#define _EG_P    R
+#define _EG_W    T
+#define _EG_J    Y
+#define _EG_M    U
+#define _EG_D    I
+#define _EG_1DK  O
+#define _EG_Y    P
+
+// Second row
+#define _EG_A    A
+#define _EG_S    S
+#define _EG_E    D
+#define _EG_N    F
+#define _EG_F    G
+#define _EG_L    H
+#define _EG_R    J
+#define _EG_T    K
+#define _EG_I    L
+#define _EG_U    SEMI
+#define _EG_QUOT SINGLE_QUOTE
+
+// Third row
+#define _EG_Z    Z
+#define _EG_X    X
+#define _EG_MINS C
+#define _EG_V    V
+#define _EG_B    B
+#define _EG_DOT  N
+#define _EG_H    M
+#define _EG_G    COMMA
+#define _EG_COMM DOT
+#define _EG_K    FSLH
+
+// ==================================================
+// 1.b Ergo-L key presses
+// ==================================================
+
+// Digit row
+#define EG_1 &kp _EG_1
+#define EG_2 &kp _EG_2
+#define EG_3 &kp _EG_3
+#define EG_4 &kp _EG_4
+#define EG_5 &kp _EG_5
+#define EG_6 &kp _EG_6
+#define EG_7 &kp _EG_7
+#define EG_8 &kp _EG_8
+#define EG_9 &kp _EG_9
+#define EG_0 &kp _EG_0
+
+// First row
+#define EG_Q   &kp _EG_Q
+#define EG_C   &kp _EG_C
+#define EG_O   &kp _EG_O
+#define EG_P   &kp _EG_P
+#define EG_W   &kp _EG_W
+#define EG_J   &kp _EG_J
+#define EG_M   &kp _EG_M
+#define EG_D   &kp _EG_D
+#define EG_1DK &kp _EG_1DK
+#define EG_Y   &kp _EG_Y
+
+// Second row
+#define EG_A    &kp _EG_A
+#define EG_S    &kp _EG_S
+#define EG_E    &kp _EG_E
+#define EG_N    &kp _EG_N
+#define EG_F    &kp _EG_F
+#define EG_L    &kp _EG_L
+#define EG_R    &kp _EG_R
+#define EG_T    &kp _EG_T
+#define EG_I    &kp _EG_I
+#define EG_U    &kp _EG_U
+#define EG_QUOT &kp _EG_QUOT
+
+// Third row
+#define EG_Z    &kp _EG_Z
+#define EG_X    &kp _EG_X
+#define EG_MINS &kp _EG_MINS
+#define EG_V    &kp _EG_V
+#define EG_B    &kp _EG_B
+#define EG_DOT  &kp _EG_DOT
+#define EG_H    &kp _EG_H
+#define EG_G    &kp _EG_G
+#define EG_COMM &kp _EG_COMM
+#define EG_K    &kp _EG_K
+
+
+// ==================================================
+// 1.b Simple keycodes
+// ==================================================
+
+// Tab navigation
+#define PREV_T   &kp LC(LS(TAB))
+#define NEXT_T   &kp LC(TAB)
+#define CLOSE_T  &kp LC(_EG_W)
+#define OPEN_T   &kp LC(_EG_T)
 
 /**
  * Home Row
  */
 
-#define H_A    &hrm LGUI
-#define H_S    &hrm LCTL
-#define H_D    &hrm LALT
-#define H_F    &hrm LSHIFT
-#define H_J    &hrm RSHIFT
-#define H_K    &hrm LALT
-#define H_L    &hrm RCTL
-#define H_SEMI &hrm RGUI
+#define H_A  &hrm LGUI
+#define H_S  &hrm LCTL
+#define H_D  &hrm LALT
+#define H_F  &hrm LSHIFT
+#define H_J  &hrm RSHIFT
+#define H_K  &hrm LALT
+#define H_L  &hrm RCTL
+#define H_SEMI  &hrm RGUI
 
-#define HRM_A    H_A A
-#define HRM_S    H_S S
-#define HRM_D    H_D D
-#define HRM_F    H_F F
-#define HRM_J    H_J J
-#define HRM_K    H_K K
-#define HRM_L    H_L L
+#define HRM_A    H_A    A
+#define HRM_S    H_S    S
+#define HRM_D    H_D    D
+#define HRM_F    H_F    F
+#define HRM_J    H_J    J
+#define HRM_K    H_K    K
+#define HRM_L    H_L    L
 #define HRM_SEMI H_SEMI SEMI
 
 #define X_SAVE2 &hrm LCTL A
@@ -72,6 +197,8 @@
 #ifndef QUICK_TAP
 #define QUICK_TAP 200
 #endif
+
+#define SYM_NUM_LAYER &EZ_SL(NUM_ROW_LAYER)
 
 #define EZ_SL(layer)  bsl (layer) (layer)
 #define EZ_SK(mod)    bsk (mod) (mod)
@@ -145,21 +272,21 @@
     magic_backspace: magic_backspace {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&sc NAV_LAYER BACKSPACE>, <&lt NAV_LAYER SPACE>;
+      bindings = <&sc VIM_NAV_LAYER BACKSPACE>, <&lt VIM_NAV_LAYER SPACE>;
       mods      = <MOD_LSFT>;
       keep-mods = <MOD_LSFT>;
     };
     magic_space: magic_space {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&lt NAV_LAYER SPACE>, <&sc NAV_LAYER BACKSPACE>;
+      bindings = <&lt VIM_NAV_LAYER SPACE>, <&sc VIM_NAV_LAYER BACKSPACE>;
       mods      = <MOD_LCTL>;
       keep-mods = <MOD_LCTL>;
     };
     magic_backspace_34_keys: magic_backspace_34_keys {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&sc HRM_LAYER BACKSPACE>, <&lt HRM_LAYER SPACE>;
+      bindings = <&sc NUM_ROW_LAYER BACKSPACE>, <&lt NUM_ROW_LAYER SPACE>;
       mods      = <MOD_LSFT>;
       keep-mods = <MOD_LSFT>;
     };
